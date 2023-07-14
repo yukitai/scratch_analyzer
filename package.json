@@ -1,0 +1,29 @@
+{
+  "name": "scratch_analyzer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "check": "tsc"
+  },
+  "dependencies": {
+    "@unocss/preset-attributify": "^0.53.5",
+    "@unocss/preset-uno": "^0.53.5",
+    "autoprefixer": "^10.4.7",
+    "chart.js": "^4.3.0",
+    "file-saver": "^2.0.5",
+    "jszip": "^3.10.1",
+    "preact": "^10.5.15",
+    "react-chartjs-2": "^5.2.0",
+    "unocss": "^0.53.5"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.1.5",
+    "@types/file-saver": "^2.0.5",
+    "typescript": "^4.5.4",
+    "vite": "^2.9.9"
+  }
+}

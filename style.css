@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    padding: 0 5rem;
+    background-color: rgb(17, 24, 39);
+    color: white;
+}
+
+.style-code {
+    font-family: 'Ubuntu Mono', 'Courier New', Courier, monospace;
+}
+
+[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+    outline: 0;
+    background-color: transparent;
+    width: 500px;
+}
+[type="range"]::-webkit-slider-runnable-track {
+    height: 4px;
+    background: #eee;
+}
+[type="range" i]::-webkit-slider-container {
+    height: 20px;
+    overflow: hidden;
+}
+[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #f44336;
+    border: 1px solid transparent;
+    margin-top: -8px;
+    border-image: linear-gradient(#f44336,#f44336) 0 fill / 8 20 8 0 / 0px 0px 0 2000px;
+}
