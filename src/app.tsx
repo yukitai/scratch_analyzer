@@ -20,7 +20,7 @@ export function App() {
     } as AnalyzeResult)
 
     const [ speedAnalyzeResult, setSpeedAnalyzeResult ] = useState({
-
+        progress: -1, total: -1,
     } as SpeedAnalyzeResult)
 
     return (
@@ -67,6 +67,11 @@ export function App() {
                     onLoad={(files: FileList) => {
                         if (files.length === 0) { return }
                         const file = files[0]
+
+                        setSpeedAnalyzeResult({
+                            progress: -2,
+                            total: -2,
+                        })
 
                         loadsb3(file).then(([json]) => {
                             const data = json.targets[0].lists["wVRq*^~#2T`usdQf9C;/"][1]

@@ -1,3 +1,7 @@
+:root {
+    --code-font: 'Ubuntu Mono', 'Courier New', Courier, monospace;
+}
+
 body {
     margin: 0;
     padding: 0 5rem;
@@ -6,7 +10,25 @@ body {
 }
 
 .style-code {
-    font-family: 'Ubuntu Mono', 'Courier New', Courier, monospace;
+    font-family: var(--code-font);
+}
+
+progress {
+    position: relative;
+    text-align: center;
+}
+
+progress.show_progress::after {
+    content: attr(value) "/" attr(max);
+}
+
+progress::after {
+    position: absolute;
+    content: "Loading";
+    color: #545454;
+    top: 1rem;
+    font-family: var(--code-font);
+    transform: translateX(-50%);
 }
 
 [type="range"] {
@@ -15,11 +37,10 @@ body {
     margin: 0;
     outline: 0;
     background-color: transparent;
-    width: 500px;
 }
 [type="range"]::-webkit-slider-runnable-track {
-    height: 4px;
-    background: #eee;
+    height: 1px;
+    background-color: #777;
 }
 [type="range" i]::-webkit-slider-container {
     height: 20px;
@@ -28,11 +49,70 @@ body {
 [type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: #f44336;
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
     border: 1px solid transparent;
-    margin-top: -8px;
-    border-image: linear-gradient(#f44336,#f44336) 0 fill / 8 20 8 0 / 0px 0px 0 2000px;
+    margin-top: -2px;
+    background-color: #f44336;
+    /*border-image: linear-gradient(#f44336,#f44336) 0 fill / 8 20 8 0 / 0px 10px 0 2000px;*/
 }
+
+progress {
+    width: 200px;
+    height: 4px;
+    background-color: #232323;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #232323;
+}
+
+progress::-webkit-progress-value {
+    background-color: white;
+}
+  
+.dialog {
+    border: none;
+    box-shadow: 0 25px 50px -12px #00000040;
+    border-radius: 0.5rem;
+    font-family: "Comfortaa", cursive;
+    padding: 3rem;
+    margin: 2rem;
+    backdrop-filter: blur(10px);
+    background-color: #272733ea;
+    color: #adadad;
+    transition: 0.3s;
+}
+
+.dialog-container {
+    vertical-align: middle;
+}
+
+.exit-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: fit-content;
+    height: fit-content;
+    color: #dadada;
+    transition: 0.2s;
+}
+
+.exit-btn:hover {
+    cursor: pointer;
+    color: #adadad;
+}
+
+.exit-btn {
+    width: 2em;
+    height: 2em;
+}
+
+.dialog:not([open]) {
+    opacity: 0;
+    visibility: hidden;
+    display: block;
+    scale: 0.3;
+}
+    

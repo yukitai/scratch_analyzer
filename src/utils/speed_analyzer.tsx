@@ -2,10 +2,14 @@ import { StateUpdater } from "preact/hooks"
 import { ScratchJson } from "./sb3json"
 
 type SpeedAnalyzeResult = {
-    result?: {
-        ticks: Ticks,
-        fn_cost: FnCosts,
-    }
+    result?: SpeedAnalyzeResultType,
+    progress?: number | null,
+    total?: number | null,
+}
+
+type SpeedAnalyzeResultType = {
+    ticks: Ticks,
+    fn_cost: FnCosts,
 }
 
 type Ticks = {
@@ -32,11 +36,19 @@ export class SpeedAnalyzer {
     }
 
     async analyze() {
-        console.log(this.data)
         let ticks: Ticks = [{ t: 0, fn_call: {} }]
         let fn_cost: FnCosts = {}
         let call_stack = []
-        for (let i = 0; i < this.data.length; i += 3) {
+        let i = 0
+
+        const update = () => {
+            this.setResult({
+                progress: i, total: this.data.length,
+            })
+        }
+        const updater = setInterval(update, 100)
+
+        for (; i < this.data.length; i += 3) {
             const n = this.data[i + 1]
             switch (this.data[i]) {
             case "start":
@@ -61,14 +73,19 @@ export class SpeedAnalyzer {
                 break
             }
         }
-        console.log(ticks, fn_cost)
+
+        clearInterval(updater)
+
         this.setResult(prev => { return {
-            result: { ticks, fn_cost }
+            result: { ticks, fn_cost },
+            progress: -1,
+            total: -1,
         } })
     }
 }
 
 export type {
     SpeedAnalyzeResult,
+    SpeedAnalyzeResultType,
     SpeedRawData,
 }

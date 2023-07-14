@@ -21,7 +21,7 @@ export function AnalyzeDisplay(props: AnalyzeDisplayProps) {
                                     {get_sprite_count(ast!)}
                                 </span> + 1
                             </div>
-                            <div>
+                            <div class="line-through">
                                 <span>Definions</span>: <span>
                                     {get_definion_count(ast!)}
                                 </span>
