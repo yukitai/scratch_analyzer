@@ -9,6 +9,16 @@ body {
     color: white;
 }
 
+@media screen and (max-width: 500px) {
+    body {
+        padding: 0 2rem;
+    }
+}
+
+.subtitle {
+    text-align: center;
+}
+
 .style-code {
     font-family: var(--code-font);
 }

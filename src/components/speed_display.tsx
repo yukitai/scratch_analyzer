@@ -7,6 +7,7 @@ import { Progress } from "./progress"
 
 import { Bar, Line } from 'react-chartjs-2'
 import { speed_info } from "../utils/speed_info"
+import { get_chart_width, get_chart_height } from "../utils/chart"
 
 type SpeedAnalyzeDisplayProps = {
     result: SpeedAnalyzeResult,
@@ -213,7 +214,7 @@ export function SpeedAnalyzeDisplay(props: SpeedAnalyzeDisplayProps) {
                                     set_raw(speed_info(result))
                                 }}>View Raw</button>
                         </h2>
-                        <Bar width="500" height="400" data={get_cost_data()}
+                        <Bar width={get_chart_width()} height={get_chart_height()} data={get_cost_data()}
                             options={{
                                 indexAxis: "y",
                                 plugins: {
@@ -230,7 +231,7 @@ export function SpeedAnalyzeDisplay(props: SpeedAnalyzeDisplayProps) {
                         <h2 class="font-thin">
                             Total
                         </h2>
-                        <Bar width="500" height="400" data={get_total_data()}
+                        <Bar width={get_chart_width()} height={get_chart_height()} data={get_total_data()}
                             options={{
                                 indexAxis: "y",
                                 plugins: {
@@ -247,7 +248,7 @@ export function SpeedAnalyzeDisplay(props: SpeedAnalyzeDisplayProps) {
                         <h2 class="font-thin">
                             Tick Costs
                         </h2>
-                        <Line width="500" height="400" data={get_total_tcost_data()}
+                        <Line width={get_chart_width()} height={get_chart_height()} data={get_total_tcost_data()}
                             options={{
                                 // indexAxis: "y",
                                 plugins: {
@@ -270,7 +271,7 @@ export function SpeedAnalyzeDisplay(props: SpeedAnalyzeDisplayProps) {
                                 max={result.ticks.length - 1} ref={rangeRef}
                                 class="style-range w-sm float-right mt-2" />
                         </h2>
-                        <Bar width="500" height="400" data={get_tick_data(curr_tick)}
+                        <Bar width={get_chart_width()} height={get_chart_height()} data={get_tick_data(curr_tick)}
                             options={{
                                 indexAxis: "y",
                                 plugins: {

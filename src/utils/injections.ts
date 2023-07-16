@@ -383,7 +383,7 @@ export const injection_stage: any = {
         },
         "scratch_analyzer_injected_v": {
             "opcode": "data_addtolist",
-            "next": null,
+            "next": "scratch_analyzer_injected_x",
             "parent": "scratch_analyzer_injected_c",
             "inputs": {
                 "ITEM": [
@@ -403,7 +403,7 @@ export const injection_stage: any = {
             "shadow": shadow,
             "topLevel": false
         },
-        /*"scratch_analyzer_injected_x": {
+        "scratch_analyzer_injected_x": {
             "opcode": "control_wait",
             "next": null,
             "parent": "scratch_analyzer_injected_v",
@@ -419,7 +419,7 @@ export const injection_stage: any = {
             "fields": {},
             "shadow": shadow,
             "topLevel": false
-        },*/
+        },
         "scratch_analyzer_injected_w": {
             "opcode": "sensing_dayssince2000",
             "next": null,
